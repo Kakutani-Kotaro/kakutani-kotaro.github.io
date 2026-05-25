@@ -157,12 +157,34 @@
     100% { opacity: 0; }
   }
 
-  .hero-bio {
-    max-width: 560px;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.75;
-    margin-bottom: 2.4rem;
+  .intro-message {
+    max-width: 680px;
+    margin: 0 0 2.4rem;
+    padding: 1.45rem 1.55rem;
+    border: 0.5px solid var(--border2);
+    border-radius: 2px;
+    background: rgba(20,23,22,0.82);
+    box-shadow: inset 3px 0 0 rgba(78,203,141,0.72);
+  }
+
+  .intro-message-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .intro-message p {
+    color: rgba(184,200,186,0.78);
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .intro-message p + p {
+    margin-top: 0.75rem;
   }
 
   .hero-tags {
@@ -448,7 +470,7 @@
 
   .hero-eyebrow { animation: fadeUp 0.5s ease both; }
   .hero-main    { animation: fadeUp 0.5s 0.1s ease both; }
-  .hero-bio     { animation: fadeUp 0.5s 0.26s ease both; }
+  .intro-message { animation: fadeUp 0.5s 0.26s ease both; }
   .hero-tags    { animation: fadeUp 0.5s 0.34s ease both; }
   .hero-cta     { animation: fadeUp 0.5s 0.42s ease both; }
 
@@ -508,9 +530,16 @@
     </div>
   </div>
 
-  <p class="hero-bio">
-    ーーーー
-  </p>
+  <div class="intro-message">
+    <span class="intro-message-label">Profile Message</span>
+    <p>
+      電気化学を軸に、電極界面で起こる反応や材料のふるまいを学んでいます。
+      大阪大学大学院 工学研究科で、量子システム化学工学領域 藤井研究室に所属しています。
+    </p>
+    <p>
+      実験と解析の両方を大切にしながら、エネルギー変換・貯蔵に関わる現象を丁寧に理解していきたいと考えています。
+    </p>
+  </div>
 
   <div class="hero-tags">
     <span class="tag accent">---</span>
