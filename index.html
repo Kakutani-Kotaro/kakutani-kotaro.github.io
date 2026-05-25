@@ -1,64 +1,618 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kotaro Kakutani</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Researcher — Electrochemistry Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f0e;
+    --bg2: #141716;
+    --bg3: #1a1e1c;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8ede9;
+    --muted: #7a8c7e;
+    --accent: #4ecb8d;
+    --accent2: #2a8f60;
+    --accent-glow: rgba(78,203,141,0.06);
+    --blue: #5ab4e8;
+    --font-mono: 'DM Mono', monospace;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 52px;
+    background: rgba(13,15,14,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .hero {
+    padding: 130px 2.5rem 80px;
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 1.6rem;
+  }
+
+  .hero-text {
+    min-width: 0;
+  }
+
+  h1 {
+    font-family: var(--font-sans);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 strong {
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .hero-role {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  .hero-image-rotator {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.5px solid var(--border2);
+    background: var(--bg2);
+    box-shadow: 0 0 30px rgba(78,203,141,0.08);
+  }
+
+  .hero-image-rotator img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: rotateImages 12s infinite;
+  }
+
+  .hero-image-rotator img:nth-child(1) { animation-delay: 0s; }
+  .hero-image-rotator img:nth-child(2) { animation-delay: 4s; }
+  .hero-image-rotator img:nth-child(3) { animation-delay: 8s; }
+
+  @keyframes rotateImages {
+    0% { opacity: 0; }
+    8% { opacity: 1; }
+    30% { opacity: 1; }
+    38% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .hero-bio {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 2.4rem;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 2.5rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 5px 12px;
+    border: 0.5px solid var(--border2);
+    border-radius: 2px;
+    color: var(--muted);
+    background: var(--bg2);
+    letter-spacing: 0.04em;
+  }
+
+  .tag.accent {
+    border-color: var(--accent2);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .hero-cta {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a1a10;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover { background: #6bdbaa; }
+
+  .btn-ghost {
+    border: 0.5px solid var(--border2);
+    color: var(--muted);
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .stats-bar {
+    background: var(--bg2);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    padding: 1.8rem 2.5rem;
+  }
+
+  .stats-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+
+  .stat {
+    padding: 0 1.5rem;
+    border-right: 0.5px solid var(--border);
+  }
+
+  .stat:first-child { padding-left: 0; }
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: var(--font-mono);
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .section {
+    max-width: 900px; margin: 0 auto;
+    padding: 4rem 2.5rem;
+  }
+
+  .section + .section {
+    border-top: 0.5px solid var(--border);
+  }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .section-line {
+    flex: 1; height: 0.5px;
+    background: var(--border);
+  }
+
+  .timeline { position: relative; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 8px; bottom: 0;
+    width: 0.5px;
+    background: linear-gradient(to bottom, var(--accent2), transparent);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 0 1.8rem;
+    margin-bottom: 2.4rem;
+    position: relative;
+  }
+
+  .tl-dot {
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent2);
+    background: var(--bg);
+    margin-top: 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tl-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(78,203,141,0.4);
+  }
+
+  .tl-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .tl-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .tl-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .tl-desc {
+    font-size: 13px;
+    color: rgba(184,200,186,0.65);
+    line-height: 1.65;
+  }
+
+  .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .pub-item {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+    padding: 1.1rem 1.4rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0 1.2rem;
+    align-items: start;
+  }
+
+  .pub-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+
+  .pub-title {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .pub-authors {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .pub-journal {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--blue);
+  }
+
+  .pub-year {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .contact-item {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .contact-icon {
+    font-size: 15px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    width: 20px; text-align: center;
+  }
+
+  .contact-label {
+    font-size: 11px; color: var(--muted);
+    font-family: var(--font-mono); letter-spacing: 0.04em;
+    display: block;
+  }
+
+  .contact-value {
+    font-size: 13px; color: var(--text);
+    display: block;
+  }
+
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 1.8rem 2.5rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+  .hero-main    { animation: fadeUp 0.5s 0.1s ease both; }
+  .hero-bio     { animation: fadeUp 0.5s 0.26s ease both; }
+  .hero-tags    { animation: fadeUp 0.5s 0.34s ease both; }
+  .hero-cta     { animation: fadeUp 0.5s 0.42s ease both; }
+
+  @media (max-width: 720px) {
+    .hero-main {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
+
+    .hero-image-rotator {
+      width: 100%;
+      max-width: 320px;
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .hero { padding: 110px 1.2rem 60px; }
+    .stats-bar { padding: 1.4rem 1.2rem; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .stat { border-right: none; padding: 0; }
+    .section { padding: 2.8rem 1.2rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .pub-item { grid-template-columns: auto 1fr; }
+    .pub-year { display: none; }
+  }
+</style>
 </head>
+
 <body>
 
-  <header class="hero">
-    <h1>Kotaro Kakutani</h1>
-    <p>Graduate Student | Electrochemistry | Energy Storage</p>
-  </header>
+<nav>
+  <span class="nav-logo">// electrochemistry</span>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#timeline">cv</a></li>
+    <li><a href="#publications">papers</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
 
-  <main>
+<section class="hero" id="about">
+  <p class="hero-eyebrow">Graduate Researcher</p>
 
-    <section>
-      <h2>About</h2>
-      <p>
-        大阪大学大学院 工学研究科 環境エネルギー工学専攻に所属する修士課程の学生です。
-        電気化学、電解液、分光測定を中心に、蓄電デバイスに関する研究を行っています。
-      </p>
-    </section>
+  <div class="hero-main">
+    <div class="hero-text">
+      <h1><strong>角谷 耕太郎</strong><br>KAKUTANI Kotaro</h1>
+      <p class="hero-role">// ---</p>
+    </div>
 
-    <section>
-      <h2>Research</h2>
-      <p>
-        現在は、水溶液系電解液、バナジウム系レドックス反応、電極界面反応、
-        FTIR・UV-Vis・電気化学測定を用いた反応解析に関心を持っています。
-      </p>
-    </section>
+    <div class="hero-image-rotator">
+      <img src="image1.jpg" alt="Research image 1">
+      <img src="image2.jpg" alt="Research image 2">
+      <img src="image3.jpg" alt="Research image 3">
+    </div>
+  </div>
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>Electrochemical analysis of aqueous electrolytes</li>
-        <li>Spectroscopic study of electrode/electrolyte interfaces</li>
-        <li>Robot contest-related technical activities</li>
-      </ul>
-    </section>
+  <p class="hero-bio">
+    ーーーー
+  </p>
 
-    <section>
-      <h2>Publications / Presentations</h2>
-      <p>
-        学会発表・論文・受賞歴などをここに追加します。
-      </p>
-    </section>
+  <div class="hero-tags">
+    <span class="tag accent">---</span>
+    <span class="tag accent">---</span>
+    <span class="tag accent">---</span>
+    <span class="tag">---</span>
+    <span class="tag">---</span>
+    <span class="tag">---</span>
+    <span class="tag">Osaka University</span>
+  </div>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email: example@example.com
-      </p>
-    </section>
+  <div class="hero-cta">
+    <a href="#publications" class="btn btn-primary">View Publications</a>
+    <a href="#contact" class="btn btn-ghost">Contact</a>
+  </div>
+</section>
 
-  </main>
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">340</div>
+      <div class="stat-label">Citations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">h8</div>
+      <div class="stat-label">h-index</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Years Research</div>
+    </div>
+  </div>
+</div>
 
-  <footer>
-    <p>&copy; 2026 Kotaro Kakutani</p>
-  </footer>
+<section class="section" id="timeline">
+  <div class="section-header">
+    <span class="section-title">Curriculum Vitae</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot active"></div>
+      <div class="tl-body">
+        <div class="tl-meta">2022 — present</div>
+        <div class="tl-title">---</div>
+        <div class="tl-sub">---</div>
+        <div class="tl-desc">---</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-meta">2020 — 2022</div>
+        <div class="tl-title">---</div>
+        <div class="tl-sub">---</div>
+        <div class="tl-desc">---</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="publications">
+  <div class="section-header">
+    <span class="section-title">Selected Publications</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="pub-list">
+    <div class="pub-item">
+      <span class="pub-num">01</span>
+      <div>
+        <div class="pub-title">---</div>
+        <div class="pub-authors"><strong>---</div>
+        <div class="pub-journal">---</div>
+      </div>
+      <span class="pub-year">---</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-header">
+    <span class="section-title">Contact</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="contact-grid">
+    <a href="---" class="contact-item">
+      <span class="contact-icon">@</span>
+      <div>
+        <span class="contact-label">email</span>
+        <span class="contact-value">---</span>
+      </div>
+    </a>
+
+    <a href="https://github.com" target="_blank" class="contact-item">
+      <span class="contact-icon">gh</span>
+      <div>
+        <span class="contact-label">github</span>
+        <span class="contact-value">@taro-yamada</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 KAKUTANI Kotaro · Built with GitHub Pages
+</footer>
 
 </body>
 </html>
