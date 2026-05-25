@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.7;
+  color: #222;
+  background: #f7f7f7;
+}
+
+.hero {
+  background: #1f2937;
+  color: white;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.hero p {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #d1d5db;
+}
+
+main {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+section {
+  background: white;
+  margin-bottom: 24px;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+}
