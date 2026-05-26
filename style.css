@@ -166,7 +166,7 @@ a:hover {
   color: var(--accent);
 }
 a {
-  color: rgba(232, 237, 233, 0.72);
+  color: rgba(232, 237, 233, 0.68);
   text-decoration: none;
   transition:
     color 0.18s ease,
@@ -174,7 +174,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent);
+  color: #4ecb8d;
 }
 
 a:visited {
