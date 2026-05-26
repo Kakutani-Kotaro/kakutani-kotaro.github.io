@@ -165,4 +165,20 @@ a {
 a:hover {
   color: var(--accent);
 }
+a {
+  color: rgba(232, 237, 233, 0.72);
+  text-decoration: none;
+  transition:
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:visited {
+  color: rgba(232, 237, 233, 0.72);
+}
+
 </style>
