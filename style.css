@@ -112,3 +112,42 @@ footer {
     height: 220px;
   }
 }
+/* ── STATS BAR ── */   ← ここから追加
+.stats-bar {
+  background: #1f2937;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 1.8rem 1.5rem;
+}
+.stats-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: start;
+}
+.stat {
+  padding: 0 2rem 0 0;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.stat-num {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #4ecb8d;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+.stats-inner .affiliations-bar {
+  border: none;
+  padding: 0 0 0 2rem;
+  background: transparent;
+}
+.stats-inner .affiliations-inner {
+  max-width: 100%;
+}
+
+</style>
