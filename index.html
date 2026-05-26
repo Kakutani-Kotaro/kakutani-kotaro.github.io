@@ -247,16 +247,16 @@
 
   .stats-inner {
     max-width: 900px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
   }
 
   .stat {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 0 0;
     border-right: 0.5px solid var(--border);
   }
-
-  .stat:first-child { padding-left: 0; }
-  .stat:last-child { border-right: none; }
 
   .stat-num {
     font-family: var(--font-mono);
@@ -271,6 +271,85 @@
     color: var(--muted);
     margin-top: 4px;
     letter-spacing: 0.04em;
+  }
+
+  .affiliations-bar {
+    min-width: 0;
+  }
+
+  .affiliations-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+
+  .affiliations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .affil-card {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    min-height: 74px;
+    padding: 1rem 1.25rem;
+    border: 0.5px solid var(--border2);
+    border-radius: 4px;
+    background: rgba(20,23,22,0.86);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+
+  .affil-card:hover {
+    border-color: rgba(78,203,141,0.48);
+    background: rgba(26,30,28,0.96);
+    transform: translateY(-1px);
+  }
+
+  .affil-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0.5px solid var(--border2);
+    border-radius: 4px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: rgba(13,15,14,0.58);
+  }
+
+  .affil-info {
+    min-width: 0;
+  }
+
+  .affil-name {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .affil-desc {
+    margin-top: 4px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .affil-arrow {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    opacity: 0.75;
   }
 
   .section {
@@ -492,8 +571,9 @@
     .nav-links { gap: 1rem; }
     .hero { padding: 110px 1.2rem 60px; }
     .stats-bar { padding: 1.4rem 1.2rem; }
-    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .stats-inner { grid-template-columns: 1fr; gap: 1.8rem; }
     .stat { border-right: none; padding: 0; }
+    .affiliations-grid { grid-template-columns: 1fr; }
     .section { padding: 2.8rem 1.2rem; }
     .contact-grid { grid-template-columns: 1fr; }
     .pub-item { grid-template-columns: auto 1fr; }
@@ -562,29 +642,27 @@
       <div class="stat-num">M2</div>
       <div class="stat-label">Degree</div>
     </div>
-   <div class="affiliations-bar">
-  <div class="affiliations-inner">
-    <p class="affiliations-eyebrow">Affiliations &amp; Communities</p>
-    <div class="affiliations-grid">
-      <a href="https://kansai-harurobo.org/" target="_blank" rel="noopener" class="affil-card">
-        <div class="affil-icon">KHR</div>
-        <div class="affil-info">
-          <div class="affil-name">関西春ロボコン運営委員会</div>
-          <div class="affil-desc">Kansai Haru Robocon Committee</div>
-        </div>
-        <span class="affil-arrow">↗</span>
-      </a>
-      <a href="https://kinkiknights.com/" target="_blank" rel="noopener" class="affil-card">
-        <div class="affil-icon">KK</div>
-        <div class="affil-info">
-          <div class="affil-name">KINKI KNIGHTS</div>
-          <div class="affil-desc">Cross-university robotics community</div>
-        </div>
-        <span class="affil-arrow">↗</span>
-      </a>
+    <div class="affiliations-bar">
+      <p class="affiliations-eyebrow">Affiliations &amp; Communities</p>
+      <div class="affiliations-grid">
+        <a href="https://kansai-harurobo.org/" target="_blank" rel="noopener" class="affil-card">
+          <div class="affil-icon">KHR</div>
+          <div class="affil-info">
+            <div class="affil-name">関西春ロボコン運営委員会</div>
+            <div class="affil-desc">Kansai Haru Robocon Committee</div>
+          </div>
+          <span class="affil-arrow">↗</span>
+        </a>
+        <a href="https://kinkiknights.com/" target="_blank" rel="noopener" class="affil-card">
+          <div class="affil-icon">KK</div>
+          <div class="affil-info">
+            <div class="affil-name">KINKI KNIGHTS</div>
+            <div class="affil-desc">Cross-university robotics community</div>
+          </div>
+          <span class="affil-arrow">↗</span>
+        </a>
+      </div>
     </div>
-  </div>
-</div>
   </div>
 </div>
 
