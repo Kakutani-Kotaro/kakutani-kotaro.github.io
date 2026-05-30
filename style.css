@@ -181,7 +181,7 @@ footer {
 }
 
 .method-image-frame {
-  width: 50%;
+  width: 20%;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   border: 0.5px solid var(--border);
@@ -192,8 +192,8 @@ footer {
 }
 
 .method-image-frame img {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
