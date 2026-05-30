@@ -675,7 +675,31 @@
   </div>
 </div>
 
+<section class="section" id="methods">
+  <div class="section-header">
+    <span class="section-title">Research Methods</span>
+    <div class="section-line"></div>
+  </div>
 
+  <div class="method-slider">
+    <button class="slider-btn slider-prev" type="button" aria-label="Previous method">‹</button>
+
+    <div class="method-slide">
+      <div class="method-meta" id="methodCounter">01 / 03</div>
+      <h2 class="method-title" id="methodTitle">---</h2>
+
+      <div class="method-image-frame">
+        <img id="methodImage" src="method1.jpg" alt="Electrochemical measurement">
+      </div>
+
+      <p class="method-description" id="methodDescription">
+        ---------
+      </p>
+    </div>
+
+    <button class="slider-btn slider-next" type="button" aria-label="Next method">›</button>
+  </div>
+</section>
 
 <section class="section" id="timeline">
   <div class="section-header">
@@ -830,5 +854,85 @@
   &copy; 2026 KAKUTANI Kotaro · Built with GitHub Pages
 </footer>
 
+<script>
+  const methods = [
+    {
+      title: "---",
+      image: "method1.jpg",
+      alt: "Electrochemical measurement",
+      description:
+        "---"
+    },
+    {
+      title: "---",
+      image: "method2.jpg",
+      alt: "FTIR and UV-Vis spectroscopy",
+      description:
+        "---"
+    },
+    {
+      title: "---",
+      image: "method3.jpg",
+      alt: "XAFS analysis",
+      description:
+        "---"
+    }
+  ];
+
+  let currentMethod = 0;
+
+  const methodCounter = document.getElementById("methodCounter");
+  const methodTitle = document.getElementById("methodTitle");
+  const methodImage = document.getElementById("methodImage");
+  const methodDescription = document.getElementById("methodDescription");
+  const prevButton = document.querySelector(".slider-prev");
+  const nextButton = document.querySelector(".slider-next");
+  const slideArea = document.querySelector(".method-slide");
+
+  function updateMethod(index) {
+    const method = methods[index];
+
+    methodCounter.textContent = String(index + 1).padStart(2, "0") + " / " + String(methods.length).padStart(2, "0");
+    methodTitle.textContent = method.title;
+    methodImage.src = method.image;
+    methodImage.alt = method.alt;
+    methodDescription.textContent = method.description;
+  }
+
+  function showNextMethod() {
+    currentMethod = (currentMethod + 1) % methods.length;
+    updateMethod(currentMethod);
+  }
+
+  function showPrevMethod() {
+    currentMethod = (currentMethod - 1 + methods.length) % methods.length;
+    updateMethod(currentMethod);
+  }
+
+  nextButton.addEventListener("click", showNextMethod);
+  prevButton.addEventListener("click", showPrevMethod);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slideArea.addEventListener("touchstart", function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+  });
+
+  slideArea.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+
+    if (touchStartX - touchEndX > 50) {
+      showNextMethod();
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      showPrevMethod();
+    }
+  });
+
+  updateMethod(currentMethod);
+</script>
+ 
 </body>
 </html>
