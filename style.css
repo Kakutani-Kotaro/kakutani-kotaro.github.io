@@ -209,11 +209,11 @@ footer {
 }
 
 .slider-prev {
-  left: 12px;
+  left: -46px;
 }
 
 .slider-next {
-  right: 12px;
+  right: -46px;
 }
 
 .slider-prev::before {
@@ -246,11 +246,11 @@ footer {
   }
 
   .slider-prev {
-    left: 12px;
+    left: 8px;
   }
 
   .slider-next {
-    right: 12px;
+    right: 8px;
   }
 
   .method-slide {
