@@ -309,5 +309,40 @@ a:active {
   margin-left: auto;
   margin-right: auto;
 }
+/* ── RESEARCH METHODS WIDTH FIX ── */
+#methods {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+#methods .method-slide {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#methods .method-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
+
+#methods .method-image-frame {
+  width: 40%;
+  max-width: 490px;
+  margin: 0 auto 1rem;
+  aspect-ratio: 16 / 9;
+}
+
+#methods .method-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#methods .method-description {
+  max-width: 760px;
+  margin: 0 auto;
+}
 </style>
