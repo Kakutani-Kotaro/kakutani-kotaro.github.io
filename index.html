@@ -388,6 +388,7 @@
   }
 
   .method-image-frame {
+    position: relative;
     width: min(100%, 640px);
     margin: 0 auto 1rem;
   }
@@ -398,6 +399,55 @@
     height: auto;
     border-radius: 6px;
     object-fit: contain;
+  }
+
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.72);
+    color: transparent;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .slider-btn::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+  }
+
+  .slider-prev {
+    left: 12px;
+  }
+
+  .slider-next {
+    right: 12px;
+  }
+
+  .slider-prev::before {
+    border-right: 10px solid #fff;
+    margin-left: -2px;
+  }
+
+  .slider-next::before {
+    border-left: 10px solid #fff;
+    margin-right: -2px;
+  }
+
+  .slider-btn:hover {
+    background: rgba(0,0,0,0.86);
+    transform: translateY(-50%) scale(1.04);
   }
 
   .timeline {
@@ -608,6 +658,11 @@
    .pub-title {
     font-size: 20px;
    }
+
+   .slider-btn {
+    width: 32px;
+    height: 32px;
+   }
   }
 </style>
 </head>
@@ -703,8 +758,6 @@
   </div>
 
   <div class="method-slider">
-    <button class="slider-btn slider-prev" type="button" aria-label="Previous method">‹</button>
-
   <div class="method-slide">
 
   <div class="method-meta" id="methodCounter">
@@ -712,12 +765,12 @@
   </div>
 
   <div class="method-image-frame">
+    <button class="slider-btn slider-prev" type="button" aria-label="Previous method">Previous</button>
     <img id="methodImage" src="method1.jpg">
+    <button class="slider-btn slider-next" type="button" aria-label="Next method">Next</button>
   </div>
 
  </div>
-
-    <button class="slider-btn slider-next" type="button" aria-label="Next method">›</button>
   </div>
 </section>
 

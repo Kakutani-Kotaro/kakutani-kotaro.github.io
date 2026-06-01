@@ -168,6 +168,7 @@ footer {
 }
 
 .method-image-frame {
+  position: relative;
   width: 100%;
   max-width: 200px;
   margin: 0 auto;
@@ -185,33 +186,49 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
-  width: 42px;
-  height: 42px;
-
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
   border: none;
-  border-radius: 3px;
-
-  background: rgba(0,0,0,0.75);
-  color: white;
-
-  font-size: 20px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.72);
+  color: transparent;
   cursor: pointer;
   z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.slider-btn::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
 }
 
 .slider-prev {
-  left: -50px;
+  left: 12px;
 }
 
 .slider-next {
-  right: -50px;
+  right: 12px;
+}
+
+.slider-prev::before {
+  border-right: 10px solid #fff;
+  margin-left: -2px;
+}
+
+.slider-next::before {
+  border-left: 10px solid #fff;
+  margin-right: -2px;
 }
 
 .slider-btn:hover {
-  background: rgba(78,203,141,0.12);
-  border-color: var(--accent);
-  transform: translateY(-1px);
+  background: rgba(0,0,0,0.86);
+  transform: translateY(-50%) scale(1.04);
 }
 
 @media (max-width: 640px) {
@@ -222,16 +239,18 @@ footer {
   .slider-btn {
     position: absolute;
     z-index: 2;
-    top: 48%;
-    background: rgba(13,15,14,0.82);
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    background: rgba(0,0,0,0.72);
   }
 
   .slider-prev {
-    left: 0.7rem;
+    left: 12px;
   }
 
   .slider-next {
-    right: 0.7rem;
+    right: 12px;
   }
 
   .method-slide {
@@ -275,6 +294,7 @@ a:active {
 }
 
 #methods .method-image-frame {
+  position: relative;
   width: min(100%, 640px);
   max-width: 640px;
   margin: 0 auto 1rem;
