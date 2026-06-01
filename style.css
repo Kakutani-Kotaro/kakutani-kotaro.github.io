@@ -155,14 +155,6 @@ footer {
   position: relative;
 }
 
-.method-slide {
-  border: 0.5px solid var(--border2);
-  border-radius: 4px;
-  background: rgba(20,23,22,0.86);
-  padding: 1.4rem;
-  overflow: hidden;
-}
-
 .method-meta {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -171,44 +163,22 @@ footer {
   margin-bottom: 0.7rem;
 }
 
-.method-title {
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--text);
-  margin: 0 0 1rem;
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.method-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
+.method-slide {
+  width: 100%;
 }
 
 .method-image-frame {
-  width: 50%;
-  max-width: 260px;
+  width: 100%;
+  max-width: 700px;
   margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  border: 0.5px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--bg);
 }
 
 .method-image-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-}
 
-.method-description {
-  color: rgba(184,200,186,0.78);
-  font-size: 16px;
-  line-height: 1.8;
+  border-radius: 6px;
 }
 
 .slider-btn {
@@ -267,17 +237,6 @@ footer {
   .method-slide {
     padding: 1.1rem;
   }
-
-  .method-title {
-    font-size: 21px;
-  }
-
-  .method-description {
-    font-size: 16px;
-  }
-  .method-content {
-  grid-template-columns: 1fr;
-  }
   
   .method-image-frame {
     width: 70%;
@@ -322,12 +281,6 @@ a:active {
   margin: 0 auto;
 }
 
-#methods .method-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.4rem;
-}
-
 #methods .method-image-frame {
   width: 40%;
   max-width: 490px;
@@ -339,10 +292,5 @@ a:active {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-#methods .method-description {
-  max-width: 760px;
-  margin: 0 auto;
 }
 </style>
