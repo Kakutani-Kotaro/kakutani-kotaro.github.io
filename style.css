@@ -275,8 +275,8 @@ a:active {
 }
 
 #methods .method-image-frame {
-  width: 70%;
-  max-width: 700px;
+  width: min(100%, 640px);
+  max-width: 640px;
   margin: 0 auto 1rem;
   aspect-ratio: auto;
 }
