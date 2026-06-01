@@ -190,7 +190,7 @@ footer {
   place-items: center;
   width: 34px;
   height: 34px;
-  border: none;
+  border: 1px solid #2a8f60;
   border-radius: 4px;
   background: rgba(0,0,0,0.72);
   color: transparent;
@@ -227,6 +227,7 @@ footer {
 }
 
 .slider-btn:hover {
+  border-color: #4ecb8d;
   background: rgba(0,0,0,0.86);
   transform: translateY(-50%) scale(1.04);
 }
