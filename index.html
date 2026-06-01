@@ -944,14 +944,7 @@
     },
     {
       image: "method2.jpg",
-      alt: "spec",
-    },
-    {
-      title: "---",
-      image: "method3.jpg",
-      alt: "---",
-      description:
-        "---"
+      alt: "spec"
     }
   ];
 
@@ -969,10 +962,14 @@
     const method = methods[index];
 
     methodCounter.textContent = String(index + 1).padStart(2, "0") + " / " + String(methods.length).padStart(2, "0");
-    methodTitle.textContent = method.title;
+    if (methodTitle) {
+      methodTitle.textContent = method.title || "";
+    }
     methodImage.src = method.image;
     methodImage.alt = method.alt;
-    methodDescription.textContent = method.description;
+    if (methodDescription) {
+      methodDescription.textContent = method.description || "";
+    }
   }
 
   function showNextMethod() {
