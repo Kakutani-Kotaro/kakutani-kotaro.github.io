@@ -389,7 +389,7 @@
 
   .method-image-frame {
     position: relative;
-    width: min(100%, 640px);
+    width: min(100%, 700px);
     margin: 0 auto 1rem;
   }
 
@@ -399,6 +399,14 @@
     height: auto;
     border-radius: 6px;
     object-fit: contain;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.38s ease, transform 0.38s ease;
+  }
+
+  .method-image-frame img.is-changing {
+    opacity: 0;
+    transform: scale(0.985);
   }
 
   .slider-btn {
@@ -571,6 +579,65 @@
     padding-top: 3px;
   }
 
+  .skill-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .skill-card {
+    min-height: 274px;
+    padding: 1.55rem 1.25rem 1.35rem;
+    border: 0.5px solid var(--border2);
+    border-radius: 4px;
+    background: rgba(20,23,22,0.86);
+  }
+
+  .skill-icon {
+    margin-bottom: 1.45rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .skill-title {
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .skill-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skill-items > li {
+    position: relative;
+    margin-bottom: 0.55rem;
+    padding-left: 1.1rem;
+    color: rgba(184,200,186,0.78);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .skill-items > li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+  }
+
+  .skill-note {
+    display: block;
+    padding-left: 0.35rem;
+    color: rgba(184,200,186,0.68);
+  }
+
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -636,6 +703,10 @@
       max-width: 320px;
       height: 220px;
     }
+
+    .skill-card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 640px) {
@@ -648,6 +719,8 @@
     .affiliations-grid { grid-template-columns: 1fr; }
     .section { padding: 2.8rem 1.2rem; }
     .contact-grid { grid-template-columns: 1fr; }
+    .skill-card-grid { grid-template-columns: 1fr; }
+    .skill-card { min-height: auto; }
     .pub-item { grid-template-columns: auto 1fr; }
     .pub-year { display: none; }
    .intro-message p {
@@ -768,19 +841,13 @@
 
   <div class="skill-card-grid">
     <div class="skill-card">
-      <div class="skill-icon">□</div>
+      <div class="skill-icon">▧</div>
       <div class="skill-title">Electronics</div>
 
       <ul class="skill-items">
         <li>電気回路設計</li>
         <li>PCB設計・実装</li>
-        <li>
-          マイコン制御
-          <ul>
-            <li>Arduino</li>
-            <li>STM32</li>
-          </ul>
-        </li>
+        <li>マイコン制御<span class="skill-note">（Arduino / STM32）</span></li>
         <li>センサ駆動回路</li>
         <li>電源回路設計</li>
         <li>はんだ付け</li>
@@ -788,67 +855,36 @@
     </div>
 
     <div class="skill-card">
-      <div class="skill-icon">□</div>
+      <div class="skill-icon">▧</div>
       <div class="skill-title">Programming</div>
 
       <ul class="skill-items">
-        <li>
-          Androidアプリ開発
-          <ul>
-            <li>Java</li>
-            <li>Kotlin</li>
-          </ul>
-        </li>
-        <li>
-          Python
-          <ul>
-            <li>データ解析</li>
-            <li>自動化</li>
-          </ul>
-        </li>
+        <li>Androidアプリ開発<span class="skill-note">（Java / Kotlin）</span></li>
+        <li>Python<span class="skill-note">（データ解析・自動化）</span></li>
         <li>C / C++</li>
         <li>Git / GitHub</li>
       </ul>
     </div>
 
     <div class="skill-card">
-      <div class="skill-icon">□</div>
+      <div class="skill-icon">▧</div>
       <div class="skill-title">Design & Fab</div>
 
       <ul class="skill-items">
-        <li>
-          3Dモデリング
-          <ul>
-            <li>CAD</li>
-          </ul>
-        </li>
+        <li>3Dモデリング<span class="skill-note">（CAD）</span></li>
         <li>3Dプリント</li>
         <li>機構設計</li>
       </ul>
     </div>
 
     <div class="skill-card">
-      <div class="skill-icon">□</div>
+      <div class="skill-icon">▧</div>
       <div class="skill-title">Research</div>
 
       <ul class="skill-items">
-        <li>
-          電気化学測定
-          <ul>
-            <li>CV</li>
-            <li>EIS</li>
-            <li>CA</li>
-          </ul>
-        </li>
-        <li>
-          FTIR / UV-Vis分光
-        </li>
-        <li>
-          XAFS
-          <ul>
-            <li>XAS</li>
-          </ul>
-        </li>
+        <li>電気化学測定<span class="skill-note">（CV / EIS / CA）</span></li>
+        <li>FTIR / UV-Vis分光</li>
+        <li>XAFS<span class="skill-note">（XAS）</span></li>
       </ul>
     </div>
   </div>
@@ -1087,7 +1123,7 @@
   const nextButton = document.querySelector(".slider-next");
   const slideArea = document.querySelector(".method-slide");
 
-  function updateMethod(index) {
+  function renderMethod(index) {
     const method = methods[index];
 
     methodCounter.textContent = String(index + 1).padStart(2, "0") + " / " + String(methods.length).padStart(2, "0");
@@ -1099,6 +1135,30 @@
     if (methodDescription) {
       methodDescription.textContent = method.description || "";
     }
+  }
+
+  function updateMethod(index, animate = true) {
+    if (!animate) {
+      renderMethod(index);
+      return;
+    }
+
+    methodImage.classList.add("is-changing");
+
+    window.setTimeout(function() {
+      const revealImage = function() {
+        requestAnimationFrame(function() {
+          methodImage.classList.remove("is-changing");
+        });
+      };
+
+      methodImage.addEventListener("load", revealImage, { once: true });
+      renderMethod(index);
+
+      if (methodImage.complete) {
+        revealImage();
+      }
+    }, 220);
   }
 
   function showNextMethod() {
@@ -1133,7 +1193,7 @@
     }
   });
 
-  updateMethod(currentMethod);
+  updateMethod(currentMethod, false);
 </script>
  
 </body>
