@@ -371,9 +371,17 @@ a:active {
 }
 
 .skill-note {
+  position: relative;
   display: block;
-  padding-left: 1.05rem;
+  padding-left: 1.1rem;
   color: rgba(184,200,186,0.68);
+}
+
+.skill-note::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--accent2);
 }
 
 /* スマホ対応 */
