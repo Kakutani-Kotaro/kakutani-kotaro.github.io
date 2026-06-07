@@ -210,10 +210,10 @@ footer {
 .slider-btn::before {
   content: '';
   display: block;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
+  width: 13px;
+  height: 15px;
+  background: #fff;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 .slider-prev {
@@ -225,13 +225,11 @@ footer {
 }
 
 .slider-prev::before {
-  border-right: 10px solid #fff;
-  margin-left: -2px;
+  transform: rotate(180deg);
 }
 
 .slider-next::before {
-  border-left: 10px solid #fff;
-  margin-right: -2px;
+  transform: none;
 }
 
 .slider-btn:hover {

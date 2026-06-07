@@ -429,10 +429,10 @@
   .slider-btn::before {
     content: '';
     display: block;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
+    width: 13px;
+    height: 15px;
+    background: #fff;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
   }
 
   .slider-prev {
@@ -444,13 +444,11 @@
   }
 
   .slider-prev::before {
-    border-right: 10px solid #fff;
-    margin-left: -2px;
+    transform: rotate(180deg);
   }
 
   .slider-next::before {
-    border-left: 10px solid #fff;
-    margin-right: -2px;
+    transform: none;
   }
 
   .slider-btn:hover {
@@ -921,15 +919,15 @@
   </div>
 
   <div class="pub-list">
-   <div class="pub-item">
+    <div class="pub-item">
       <span class="pub-num">2026.04</span>
       <div>
         <div class="pub-title">Kyoto Micro Maker Faire 2026</div>
         <div class="pub-title">Young Maker Blue Ribbon賞を株式会社スイッチサイエンス様より受賞</div>
       </div>
-    </div>  
-   
-   <div class="pub-item">
+    </div>
+
+    <div class="pub-item">
       <span class="pub-num">2026.03</span>
       <div>
         <div class="pub-title">日本原子力学会関西支部 若手研究者発表会（口頭発表）</div>
@@ -971,14 +969,13 @@
       </div>
     </div>
 
-   <div class="pub-item">
+    <div class="pub-item">
       <span class="pub-num">2024.03</span>
       <div>
-       <div class="pub-title">The Championship of Robotics Engineers:CoRE CoRE-1:2025 出場</div>
-       <div class="pub-title">KINKI KNIGHTS より出場</div>
+        <div class="pub-title">The Championship of Robotics Engineers:CoRE CoRE-1:2025 出場</div>
+        <div class="pub-title">KINKI KNIGHTS より出場</div>
       </div>
     </div>
-  </div>
 
     <div class="pub-item">
       <span class="pub-num">2025.01</span>
@@ -996,22 +993,20 @@
         <div class="pub-journal">Actinide / Electrochemistry</div>
       </div>
     </div>
-  </div>
 
- <div class="pub-item">
+    <div class="pub-item">
       <span class="pub-num">2024.03</span>
       <div>
-       <div class="pub-title">The Championship of Robotics Engineers:CoRE CoRE-1:2024 出場</div>
-       <div class="pub-title">StrayedCatsより出場</div>
+        <div class="pub-title">The Championship of Robotics Engineers:CoRE CoRE-1:2024 出場</div>
+        <div class="pub-title">StrayedCatsより出場</div>
       </div>
     </div>
-  </div>
- 
- <div class="pub-item">
+
+    <div class="pub-item">
       <span class="pub-num">2023.06</span>
       <div>
-       <div class="pub-title">NHK学生ロボコン2023に出場</div>
-       <div class="pub-title">特別賞株式会社ナガセ 受賞</div>
+        <div class="pub-title">NHK学生ロボコン2023に出場</div>
+        <div class="pub-title">特別賞株式会社ナガセ 受賞</div>
       </div>
     </div>
   </div>
