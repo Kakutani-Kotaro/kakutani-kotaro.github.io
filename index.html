@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="角谷耕太郎の個人ウェブサイト">
 <title>角谷 耕太郎 — KAKUTANI Kotaro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -716,41 +717,222 @@
   }
 
   @media (max-width: 640px) {
-    nav { padding: 0 1.2rem; }
-    .nav-links { gap: 1rem; }
-    .hero { padding: 110px 1.2rem 60px; }
-    .stats-bar { padding: 1.4rem 1.2rem; }
-    .stats-inner { grid-template-columns: 1fr; gap: 1.8rem; }
-    .stat { border-right: none; padding: 0; }
-    .affiliations-grid { grid-template-columns: 1fr; }
-    .section { padding: 2.8rem 1.2rem; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .skill-card-grid { grid-template-columns: 1fr; }
-    .skill-card { min-height: auto; }
-    .pub-item { grid-template-columns: auto 1fr; }
-    .pub-year { display: none; }
-   .intro-message p {
-    font-size: 17px;
-   }
-   .tl-title {
-    font-size: 20px;
-   }
-   .pub-title {
-    font-size: 20px;
-   }
+    body {
+      font-size: 15px;
+      line-height: 1.65;
+    }
 
-   .slider-btn {
-    width: 32px;
-    height: 32px;
-   }
+    nav {
+      height: 48px;
+      padding: 0 1rem;
+    }
 
-   .slider-prev {
-    left: 8px;
-   }
+    .nav-logo {
+      font-size: 11px;
+    }
 
-   .slider-next {
-    right: 8px;
-   }
+    .nav-links {
+      gap: 0.85rem;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+    }
+
+    .hero {
+      padding: 90px 1rem 48px;
+    }
+
+    .hero-main {
+      gap: 1.4rem;
+      margin-bottom: 1.35rem;
+    }
+
+    h1 {
+      font-size: clamp(2.15rem, 12vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .hero-role {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-image-rotator {
+      width: 100%;
+      max-width: 260px;
+      height: 190px;
+      justify-self: start;
+      border: 1px solid var(--border2);
+    }
+
+    .intro-message {
+      padding: 1.2rem 1.1rem;
+      border: 1px solid rgba(78,203,141,0.45);
+      box-shadow: inset 3px 0 0 rgba(78,203,141,0.82);
+    }
+
+    .intro-message-label {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .intro-message p {
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .tag {
+      font-size: 10px;
+      border: 1px solid var(--border2);
+    }
+
+    .btn {
+      font-size: 11px;
+      padding: 9px 16px;
+    }
+
+    .stats-bar {
+      padding: 1.8rem 1rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+
+    .stat {
+      border-right: none;
+      padding: 0;
+    }
+
+    .affiliations-grid,
+    .contact-grid,
+    .skill-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .affil-card,
+    .skill-card,
+    .pub-item,
+    .contact-item {
+      border: 1px solid var(--border2);
+    }
+
+    .affil-card {
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      padding: 1rem;
+    }
+
+    .affil-name {
+      font-size: 16px;
+    }
+
+    .affil-desc {
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .section {
+      padding: 3rem 1rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.7rem;
+    }
+
+    .section-title {
+      font-size: 12px;
+    }
+
+    .skill-card {
+      min-height: auto;
+      padding: 1.35rem 1.15rem;
+    }
+
+    .skill-title {
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .skill-items > li,
+    .skill-note {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .method-image-frame {
+      width: calc(100% - 48px);
+    }
+
+    .slider-btn {
+      width: 32px;
+      height: 32px;
+    }
+
+    .slider-prev {
+      left: -8px;
+    }
+
+    .slider-next {
+      right: -8px;
+    }
+
+    .pub-list {
+      gap: 1rem;
+    }
+
+    .pub-item {
+      grid-template-columns: 1fr;
+      gap: 0.55rem;
+      padding: 1rem;
+    }
+
+    .pub-num {
+      font-size: 12px;
+      padding-top: 0;
+    }
+
+    .pub-title {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .pub-authors {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .tl-item {
+      gap: 0 1.35rem;
+      margin-bottom: 2.35rem;
+    }
+
+    .tl-title {
+      font-size: 18px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .tl-sub,
+    .tl-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-value {
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      font-size: 10px;
+      line-height: 1.6;
+      padding: 1.4rem 1rem;
+    }
   }
 </style>
 </head>
