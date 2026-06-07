@@ -38,6 +38,21 @@
     min-height: 100vh;
   }
 
+  a,
+  a:link,
+  a:visited {
+    color: inherit;
+    text-decoration-color: currentColor;
+    text-underline-offset: 0.16em;
+    transition: color 0.18s ease, text-decoration-color 0.18s ease;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -584,6 +599,17 @@
     color: var(--muted);
     white-space: nowrap;
     padding-top: 3px;
+  }
+
+  #activities .pub-item a,
+  #activities .pub-item a:link,
+  #activities .pub-item a:visited {
+    color: var(--text);
+  }
+
+  #activities .pub-item a:hover,
+  #activities .pub-item a:focus-visible {
+    color: var(--accent);
   }
 
   .skill-card-grid {
