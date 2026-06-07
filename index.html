@@ -390,6 +390,7 @@
 
   .method-image-frame {
     position: relative;
+    --method-control-gap: 18px;
     width: min(100%, 700px);
     margin: 0 auto 1rem;
   }
@@ -422,6 +423,9 @@
     border-radius: 4px;
     background: rgba(0,0,0,0.72);
     color: transparent;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
     cursor: pointer;
     z-index: 2;
     transition: background 0.2s, transform 0.2s;
@@ -430,26 +434,30 @@
   .slider-btn::before {
     content: '';
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 13px;
     height: 15px;
     background: #fff;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
+    transform: translate(-50%, -50%);
   }
 
   .slider-prev {
-    left: -46px;
+    left: calc(-34px - var(--method-control-gap));
   }
 
   .slider-next {
-    right: -46px;
+    right: calc(-34px - var(--method-control-gap));
   }
 
   .slider-prev::before {
-    transform: rotate(180deg);
+    transform: translate(-50%, -50%) rotate(180deg);
   }
 
   .slider-next::before {
-    transform: none;
+    transform: translate(-50%, -50%);
   }
 
   .slider-btn:hover {
@@ -866,20 +874,11 @@
     }
 
     .method-image-frame {
-      width: calc(100% - 48px);
+      width: 100%;
     }
 
     .slider-btn {
-      width: 32px;
-      height: 32px;
-    }
-
-    .slider-prev {
-      left: -8px;
-    }
-
-    .slider-next {
-      right: -8px;
+      display: none;
     }
 
     .pub-list {
@@ -1353,6 +1352,26 @@
 
   nextButton.addEventListener("click", showNextMethod);
   prevButton.addEventListener("click", showPrevMethod);
+
+  const mobileMethodQuery = window.matchMedia("(max-width: 700px)");
+  let methodAutoTimer = null;
+
+  function syncMethodAutoPlay() {
+    window.clearInterval(methodAutoTimer);
+    methodAutoTimer = null;
+
+    if (mobileMethodQuery.matches && methods.length > 1) {
+      methodAutoTimer = window.setInterval(showNextMethod, 4200);
+    }
+  }
+
+  syncMethodAutoPlay();
+
+  if (mobileMethodQuery.addEventListener) {
+    mobileMethodQuery.addEventListener("change", syncMethodAutoPlay);
+  } else {
+    mobileMethodQuery.addListener(syncMethodAutoPlay);
+  }
 
   let touchStartX = 0;
   let touchEndX = 0;

@@ -169,9 +169,9 @@ footer {
 
 .method-image-frame {
   position: relative;
-  width: 100%;
-  max-width: 200px;
-  margin: 0 auto;
+  --method-control-gap: 18px;
+  width: min(100%, 700px);
+  margin: 0 auto 1rem;
 }
 
 .method-image-frame img {
@@ -202,6 +202,9 @@ footer {
   border-radius: 4px;
   background: rgba(0,0,0,0.72);
   color: transparent;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
   cursor: pointer;
   z-index: 10;
   transition: background 0.2s, transform 0.2s;
@@ -210,26 +213,30 @@ footer {
 .slider-btn::before {
   content: '';
   display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 13px;
   height: 15px;
   background: #fff;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transform: translate(-50%, -50%);
 }
 
 .slider-prev {
-  left: -46px;
+  left: calc(-34px - var(--method-control-gap));
 }
 
 .slider-next {
-  right: -46px;
+  right: calc(-34px - var(--method-control-gap));
 }
 
 .slider-prev::before {
-  transform: rotate(180deg);
+  transform: translate(-50%, -50%) rotate(180deg);
 }
 
 .slider-next::before {
-  transform: none;
+  transform: translate(-50%, -50%);
 }
 
 .slider-btn:hover {
@@ -244,20 +251,7 @@ footer {
   }
 
   .slider-btn {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    width: 32px;
-    height: 32px;
-    background: rgba(0,0,0,0.72);
-  }
-
-  .slider-prev {
-    left: 8px;
-  }
-
-  .slider-next {
-    right: 8px;
+    display: none;
   }
 
   .method-slide {
@@ -265,7 +259,7 @@ footer {
   }
   
   .method-image-frame {
-    width: 70%;
+    width: 100%;
     max-width: 320px;
   }
 }
